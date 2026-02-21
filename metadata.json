@@ -1,0 +1,5 @@
+{
+  "name": "Fraction Tug-of-War: Decomposition Master",
+  "description": "An interactive math game where players pull a rope to their side by correctly decomposing fractions into sums of parts.",
+  "requestFramePermissions": []
+}

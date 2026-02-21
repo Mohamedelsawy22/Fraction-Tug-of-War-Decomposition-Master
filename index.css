@@ -1,0 +1,114 @@
+/* Global Styles */
+:root {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    touch-action: none !important;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #bfe7ea;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+.math-card-root {
+    transition: transform 0.5s ease;
+}
+
+.math-card-root.flipped {
+    transform: rotate(180deg);
+}
+
+/* Animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+.animate-shake {
+    animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes rope-pull-vibration {
+    0%, 100% { transform: translateY(0); }
+    20% { transform: translateY(-2px) rotate(0.1deg); }
+    40% { transform: translateY(2px) rotate(-0.1deg); }
+    60% { transform: translateY(-1px) rotate(0.05deg); }
+    80% { transform: translateY(1px) rotate(-0.05deg); }
+}
+.animate-rope-pull-vibration {
+    animation: rope-pull-vibration 0.15s infinite linear;
+}
+
+@keyframes character-idle {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.01); }
+}
+.animate-character-idle {
+    animation: character-idle 2.5s ease-in-out infinite;
+}
+
+@keyframes character-bounce {
+    0%, 100% { transform: translateY(0) rotate(var(--ra, 0deg)); }
+    50% { transform: translateY(-8px) rotate(calc(var(--ra, 0deg) * 1.15)); }
+}
+.animate-character-bounce {
+    animation: character-bounce 0.4s ease-in-out infinite;
+}
+
+@keyframes sweat {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    30% { opacity: 0.8; }
+    100% { transform: translateY(15px) scale(0.5); opacity: 0; }
+}
+.animate-sweat {
+    animation: sweat 1.2s ease-in infinite;
+}
+
+@keyframes dust {
+    0% { transform: scale(0) translate(0, 0); opacity: 0; }
+    50% { transform: scale(1.5) translate(-10px, -10px); opacity: 0.6; }
+    100% { transform: scale(2) translate(-20px, -20px); opacity: 0; }
+}
+.animate-dust {
+    animation: dust 0.8s ease-out infinite;
+}
+
+/* Debugger */
+.pointer-debug-point {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 4px solid white;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3), inset 0 0 10px rgba(255,255,255,0.5);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    backdrop-filter: blur(4px);
+}
+
+* {
+    -webkit-user-drag: none;
+    user-drag: none;
+    outline: none;
+}
